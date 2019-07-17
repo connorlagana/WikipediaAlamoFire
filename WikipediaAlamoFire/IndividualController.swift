@@ -133,9 +133,9 @@ class IndividualController: UIViewController {
     }
     
     func updateNamePic(json: JSON) {
-        var image = json["query"]["pages"].dictionaryValue.values.first?["pageimage"].string
+        guard let image = json["query"]["pages"].dictionaryValue.values.first?["pageimage"].string else { return }
         
-        let file = "File:\(image!)"
+        let file = "File:\(image)"
         
         fileName = file
         
